@@ -10,7 +10,23 @@ body {
     text-align: center;
 }
 
+#contact-form-container {
+    margin-top: 5%;
+}
+
+#email-input-text {
+    text-align: center;
+}
+
 .nav-item {
     float: right;
     align-items: flex-end;
+}
+
+.cl-effect-14 a::before, .cl-effect-14 a::after {
+    background: #f39c12 !important;
+}
+
+.navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+    color: #f39c12 !important;
 }
