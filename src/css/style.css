@@ -11,7 +11,8 @@ body {
 }
 
 #email-input-text {
-    text-align: center;
+    margin-bottom: 3%;
+    text-align: left;
 }
 
 .nav-item {
@@ -26,10 +27,6 @@ body {
 #readme {
     border: 0px;
     margin-bottom: 2%;
-}
-
-.btn-outline-warning:focus, .btn-outline-warning.focus {
-    outline: none !important;
 }
 
 .cl-effect-14 a::before, .cl-effect-14 a::after {
@@ -47,4 +44,20 @@ body {
 
 .card-link:hover {
     color: #f39c12 !important;
+}
+
+#genres-list {
+    margin-top: 3%;
+}
+
+.table-dark span {
+    cursor: pointer;
+}
+
+.table-dark td :hover {
+    color: #f39c12;
+}
+
+#send-button {
+    float: right;
 }
