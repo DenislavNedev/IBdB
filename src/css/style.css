@@ -23,10 +23,28 @@ body {
     margin-bottom: 5%;
 }
 
+#readme {
+    border: 0px;
+    margin-bottom: 2%;
+}
+
+.btn-outline-warning:focus, .btn-outline-warning.focus {
+    outline: none !important;
+}
+
 .cl-effect-14 a::before, .cl-effect-14 a::after {
     background: #f39c12 !important;
 }
 
 .navbar-dark .navbar-brand:hover, .navbar-dark .navbar-brand:focus {
+    color: #f39c12 !important;
+}
+
+.card-link {
+    color: white;
+    font-style: italic;
+}
+
+.card-link:hover {
     color: #f39c12 !important;
 }
