@@ -10,10 +10,6 @@ body {
     text-align: center;
 }
 
-#contact-form-container {
-    margin-top: 5%;
-}
-
 #email-input-text {
     text-align: center;
 }
@@ -21,6 +17,10 @@ body {
 .nav-item {
     float: right;
     align-items: flex-end;
+}
+
+#cl-effect-14 {
+    margin-bottom: 5%;
 }
 
 .cl-effect-14 a::before, .cl-effect-14 a::after {
