@@ -1,55 +1,57 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Internet Book Database</title>
+        <link rel="stylesheet" href="../lib/bootstrap-4.4.1-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        
+        <div class="container">
+            <!-- navigation, to be included in a separate tag -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark cl-effect-14" id="cl-effect-14">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+                  aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+  
+              <div class="collapse navbar-collapse" id="navbarColor02">
+                  <div class="navbar-nav mx-auto" id="links">
+                      <a class="navbar-brand" href="#">Search</a>
+                      <a class="navbar-brand" href="#">Genres</a>
+                      <a class="navbar-brand" href="#">Contact</a>
+                      <a class="navbar-brand" href="#">FAQ</a>
+                  </div>
+              </div>
+          </nav>
 
-  <head>
-    <meta charset="UTF-8">
-    <title>Internet Book Database</title>
-    <link rel="stylesheet" href="../../lib/bootstrap-4.4.1-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../../lib/creative/css/component.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-</head>
-
-<body>
-
-  <div class="container">
-    <!-- navigation, to be included in a separate tag -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark cl-effect-14" id="cl-effect-14">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
-        aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarColor02">
-        <div class="navbar-nav mx-auto">
-          <a class="navbar-brand" href="#">Search</a>
-          <a class="navbar-brand" href="#">Genres</a>
-          <a class="navbar-brand" href="#">Contact</a>
-          <a class="navbar-brand" href="#">FAQ</a>
+          <!-- main content of the page -->
+          <div class="jumbotron" id="heading">
+            <img src="img/ibdb_logo.png" alt="Logo" style="width:517px;height:202px;">
+            <h2>Еvery book is on one click distance.</h2>
+            <hr class="my-4">
+            <div class="input-group md-form form-sm form-2 pl-0">
+              <input class="form-control my-0 py-1 amber-border" type="text" placeholder="Search book" aria-label="Search">
+                  <button class="btn btn-secondary" type="button">Search</button>              
+              <div class="dropdown show left-margin">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Name of book
+                  </a>
+              
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="#">Name of author</a>
+                  <a class="dropdown-item" href="#">ISBN</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
-    </nav>
-
-    <!-- main content of the page -->
-    <div class="jumbotron" id="heading">
-      <h1 class="display-3">IBdB</h1>
-      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
-        featured content or information.</p>
-      <hr class="my-4">
-      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-      <p class="lead">
-        <a class="btn btn-warning btn-lg" href="#" role="button">Learn more</a>
-      </p>
-    </div>
   </div>
 </body>
 
