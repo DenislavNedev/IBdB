@@ -111,3 +111,18 @@ div.left-margin {
 #search-dropdown {
     border-radius: 5px;
 }
+
+#faq {
+    margin-bottom: 3%;
+    text-align: left;
+}
+
+#logo-img-link::before,
+#logo-img-link::after {
+    background: #303030 !important;
+}
+
+#logo-img-link:hover,
+#logo-img-link:focus {
+    color: #303030 !important;
+}

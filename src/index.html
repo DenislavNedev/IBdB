@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../lib/bootstrap-4.4.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="../lib/creative/css/component.css">
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -17,15 +16,16 @@
 <body>
 
     <div class="container">
-        <!-- navigation, to be included in a separate tag -->
+        
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark cl-effect-14" id="cl-effect-14">
+            <a class="navbar-brand" id="logo-img-link" href="index.html"><img class="logo-img" src="img/ibdb_logo.png" alt="Logo"></a>
+            
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarColor02">
                 <div class="navbar-nav mx-auto">
-                    <a class="navbar-brand" href="#"><img class="logo-img" src="img/ibdb_logo.png" alt="Logo"></a>
                     <a class="navbar-brand" href="index.html">Search</a>
                     <a class="navbar-brand" href="views/genres.html">Genres</a>
                     <a class="navbar-brand" href="views/contact.html">Contact</a>
@@ -34,7 +34,6 @@
             </div>
         </nav>
 
-        <!-- main content of the page -->
         <div class="jumbotron" id="heading">
             <img src="img/ibdb_logo.png" alt="Logo" style="width:517px;height:202px;">
             <h2>every book is on one click distance</h2>
@@ -42,24 +41,6 @@
             <div class="input-group md-form form-sm form-2 pl-0">
                 <input class="form-control my-0 py-1" type="text" placeholder="Search book" aria-label="Search">
                 <button id="search-btn" class="btn btn-secondary" type="button">Search</button>
-                <!-- <div class="dropdown show left-margin">
-                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Name of book
-                    </a>
-                </div> -->
-
-                <!-- <ul class="nav nav-pills flex-column">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </li>
-                </ul> -->
                 <select id="search-dropdown" class="btn-secondary dropdown-toggle" data-toggle="dropdown">
                       <option class="dropdown-item">Book name</option>
                       <option class="dropdown-item">Author</option>
@@ -71,5 +52,4 @@
     </div>
     </div>
 </body>
-
 </html>
