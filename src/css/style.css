@@ -91,8 +91,8 @@ div.left-margin {
 }
 
 #the-outsider-img {
-    height: auto;
-    width: 15%;
+    /* height: auto; */
+    /* width: 15%; */
     display: block;
     float: left;
     margin-right: 15px;
@@ -131,4 +131,8 @@ div.left-margin {
     position: fixed;
     top: 21px;
     right: 22px;
+}
+
+p {
+    padding-top: 5px;
 }
