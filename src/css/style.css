@@ -126,3 +126,9 @@ div.left-margin {
 #logo-img-link:focus {
     color: #303030 !important;
 }
+
+.toast {
+    position: fixed;
+    top: 21px;
+    right: 22px;
+}
