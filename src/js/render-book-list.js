@@ -1,39 +1,53 @@
-// fetch('https://openlibrary.org/api/books?bibkeys=ISBN:0201558025&format=json&jscmd=data', {
-//     method: 'GET',
-// })
-//     .then(response => response.json())
-//     .then(response => {
-//         var book_list_template = document.getElementById("book-list-template").innerHTML;
-//         var book_list_hb = Handlebars.compile(book_list_template);
-
-//         var book_data = response[Object.keys(response)[0]];
-//         var book_list_data = {
-//             "ISBN": response[]
-//         }
-
-
-//         var book_list = book_list_hb(response);
-//         document.getElementById("book-list").innerHTML += book_list_data;
-
-//         console.log(response[Object.keys(response)[0]]);
-//     });
-
 'use strict';
 
-document.getElementById('search-btn').addEventListener('click', (event) => {
-    event.preventDefault();
-    const search = document.getElementById('search-field');
-    if(search.value === '') {
-        showToast("Please, fill in search field");
-    } else {
-        window.location.href = "views/book_list.html";
-    }
-})
+let queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(1);
+const criteria = queryString.split('=')[0];
+const author = queryString.split('=')[1];
 
-function showToast(errorMessage) {
-    const timestamp = new Date;
-    document.getElementById('toast-time').innerText = timestamp.getHours() + 
-        ':' + timestamp.getMinutes();
-    document.getElementById('toast-body').innerText = errorMessage;
-    $('.toast').toast('show');
-};
+
+fetch('https://openlibrary.org/search.json?author=' + author, {
+    method: 'GET',
+})
+    .then(response => response.json())
+    .then(response => {
+        var books_template = document.getElementById("book-list-template").innerHTML;
+        var books_hb = Handlebars.compile(books_template);
+
+        // var book_data = response[Object.keys(response)[0]];
+        // var book = {
+        //     ISBN: book_data.identifiers.isbn_10[0],
+        //     amazon: book_data.identifiers.amazon,
+        //     open_library: book_data.identifiers.openlibrary,
+        //     goodreads: book_data.identifiers.goodreads,
+        //     title: book_data.title,
+        //     authors: book_data.authors,
+        //     publish_date: book_data.publish_date,
+        //     publisher: book_data.publishers[0].name,
+        //     subjects: book_data.subjects,
+        //     notes: book_data.notes,
+        //     covers: book_data.cover,
+        //     number_of_pages: book_data.number_of_pages,
+        //     preview_url: book_data.ebooks ? book_data.ebooks[0].preview_url : undefined
+        // }
+
+        var books_data = response.docs;
+        // var book = [];
+
+        books_data.forEach(book => {
+            var book = {
+                title: book.title,
+                author: book.author_name[0],
+                isbn: book.availability.isbn,
+                // isbn: book.isbn[0],
+                cover_id: book.cover_i,
+                last_modified: book.last_modified_i,
+            };
+
+            var book_to_pass = books_hb(book);
+            document.getElementById("book-list").innerHTML += book_to_pass;
+        });
+
+        console.log(response.docs[0]);
+        // console.log(books);
+    });

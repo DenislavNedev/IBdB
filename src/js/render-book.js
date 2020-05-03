@@ -1,4 +1,10 @@
-fetch('https://openlibrary.org/api/books?bibkeys=ISBN:0385472579&format=json&jscmd=data', {
+'use strict';
+
+let queryString = decodeURIComponent(window.location.search);
+queryString = queryString.substring(1);
+const isbn = queryString.split('=')[1];
+
+fetch('https://openlibrary.org/api/books?bibkeys=ISBN:' + isbn + '&format=json&jscmd=data', {
     method: 'GET',
 })
     .then(response => response.json())
@@ -26,6 +32,8 @@ fetch('https://openlibrary.org/api/books?bibkeys=ISBN:0385472579&format=json&jsc
         var book_to_pass = book_hb(book);
         document.getElementById("book-info").innerHTML += book_to_pass;
 
+        // console.log(book_to_pass);
+
         const read_me_btn = document.getElementById("readme");
 
         if (!book.preview_url) {
@@ -36,6 +44,6 @@ fetch('https://openlibrary.org/api/books?bibkeys=ISBN:0385472579&format=json&jsc
             });
         }
 
-        console.log(response);
-        console.log(book);
+        // console.log(response);
+        // console.log(book);
     });
