@@ -17,3 +17,23 @@
 
 //         console.log(response[Object.keys(response)[0]]);
 //     });
+
+'use strict';
+
+document.getElementById('search-btn').addEventListener('click', (event) => {
+    event.preventDefault();
+    const search = document.getElementById('search-field');
+    if(search.value === '') {
+        showToast("Please, fill in search field");
+    } else {
+        window.location.href = "views/book_list.html";
+    }
+})
+
+function showToast(errorMessage) {
+    const timestamp = new Date;
+    document.getElementById('toast-time').innerText = timestamp.getHours() + 
+        ':' + timestamp.getMinutes();
+    document.getElementById('toast-body').innerText = errorMessage;
+    $('.toast').toast('show');
+};

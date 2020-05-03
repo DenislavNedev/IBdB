@@ -34,12 +34,22 @@
             </div>
         </nav>
 
+        <div class="toast" data-autohide="false">
+            <div class="toast-header">
+              <strong class="mr-auto text-danger" id="toast-header">Error Message</strong>
+              <small class="text-muted" id="toast-time"></small>
+              <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+            </div>
+            <div class="toast-body" id="toast-body">
+            </div>
+        </div>
+
         <div class="jumbotron" id="heading">
             <img src="img/ibdb_logo.png" alt="Logo" style="width:517px;height:202px;">
             <h2>every book is on one click distance</h2>
             <hr class="my-4">
             <div class="input-group md-form form-sm form-2 pl-0">
-                <input class="form-control my-0 py-1" type="text" placeholder="Search book" aria-label="Search">
+                <input id="search-field" class="form-control my-0 py-1" type="text" placeholder="Search book" aria-label="Search" required>
                 <button id="search-btn" class="btn btn-secondary" type="button">Search</button>
                 <select id="search-dropdown" class="btn-secondary dropdown-toggle" data-toggle="dropdown">
                       <option class="dropdown-item">Book name</option>
@@ -51,5 +61,7 @@
     </div>
     </div>
     </div>
+
+    <script src="js/render-book-list.js" defer></script>
 </body>
 </html>
