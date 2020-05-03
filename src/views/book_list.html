@@ -18,7 +18,7 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="../../lib/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
-    <script src="../js/handlebars-v4.7.6.js"></script>
+    <script src="../../lib/handlebars-v4.7.6.js"></script>
 </head>
 
 <body>
@@ -118,7 +118,21 @@
     </div>
 
     <script id="book-list-template" type="text/x-handlebars-template">
-<!-- TODO: Insert template here -->
+    <!-- TODO: Insert template here -->
+
+    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+        <div class="w-100 justify-content-between">
+            <img style="height: auto; width: 90px; display: block; float: left; margin-right:15px;" src="">
+            <div>
+                <h5 class="mb-1">THE OUTSIDER</h5>
+                <p class="mb-1">Stephen King</p>
+                <small class="text-muted">“Reality is thin ice, but most people skate on it their whole
+                    lives and never fall through until the very end. We did fall through, but we helped each
+                    other out. We’re still helping each other.”</small>
+            </div>
+            <small class="text-muted">2 days ago</small>
+        </div>
+    </a>
     </script>
 
     <script src="../js/render-book-list.js"></script>

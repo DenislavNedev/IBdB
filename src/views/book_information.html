@@ -18,7 +18,7 @@
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="../../lib/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
-    <script src="../js/handlebars-v4.7.6.js"></script>
+    <script src="../../lib/handlebars-v4.7.6.js"></script>
 </head>
 
 <body>
@@ -41,17 +41,28 @@
                 </div>
             </div>
         </nav>
+        <!-- The element to which we attach the generated html from the handlebars template -->
         <div id="book-info" class="card mb-3 jumbotron"></div>
     </div>
 
+    <!-- The handlebars template which will render the book info -->
     <script id="book-template" type="text/x-handlebars-template">
     <h3 class="card-header">{{title}}</h3>
     <div class="card-body">
-        <h5 class="card-title">Written by:&nbsp;&nbsp;&nbsp; {{#each authors}} <a href="{{this.url}}" class="card-link">{{this.name}}</a> {{/each}}</h5>
-        <p class="card-text"> <img id="the-outsider-img" src="{{covers.medium}}" alt="The Outsider">{{notes}}</p>
+        <h5 class="card-title">Written by &nbsp; {{#each authors}} <a href="{{this.url}}" class="card-link">{{this.name}}</a> {{/each}}</h5>
+        <p class="card-text"> <img id="the-outsider-img" src="{{covers.medium}}">{{notes}}</p>
+        {{#if ISBN}}
         <p class="card-subtitle text-muted">ISBN: {{ISBN}}</p>
+        {{/if}}
+        {{#if amazon}}
         <p class="card-subtitle text-muted">Amazon: {{amazon}}</p>
+        {{/if}}
+        {{#if goodreads}}
+        <p class="card-subtitle text-muted">Goodreads: {{goodreads}}</p>
+        {{/if}}
+        {{#if open_library}}
         <p class="card-subtitle text-muted">Open Library: {{open_library}}</p></br> 
+        {{/if}}
         <p class="card-subtitle">Published {{publish_date}} by {{publisher}}</p>
         <p class="card-subtitle">Number of pages: {{number_of_pages}}</p>
     </div>

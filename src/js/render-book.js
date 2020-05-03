@@ -11,6 +11,7 @@ fetch('https://openlibrary.org/api/books?bibkeys=ISBN:0385472579&format=json&jsc
             ISBN: book_data.identifiers.isbn_10[0],
             amazon: book_data.identifiers.amazon,
             open_library: book_data.identifiers.openlibrary,
+            goodreads: book_data.identifiers.goodreads,
             title: book_data.title,
             authors: book_data.authors,
             publish_date: book_data.publish_date,
