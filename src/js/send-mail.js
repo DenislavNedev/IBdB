@@ -28,17 +28,21 @@ sendButton.addEventListener('click', (event) => {
         .then(response => response.json())
         .then(response => {
             console.log(response);
-            showToast('Your mail has been sent!');
+            // showToast('Your mail has been sent!');
         });
 
-        showToast('You will be notified when your mail is sent!');
+        // showToast('You will be notified when your mail is sent!');
     }
 });
 
 function showToast(errorMessage) {
-    const timestamp = new Date;
-    document.getElementById('toast-time').innerText = timestamp.getHours() + 
-        ':' + timestamp.getMinutes();
-    document.getElementById('toast-body').innerText = errorMessage;
-    $('.toast').toast('show');
+    // const timestamp = new Date;
+    // document.getElementById('toast-time').innerText = timestamp.getHours() + 
+    //     ':' + timestamp.getMinutes();
+    // document.getElementById('toast-body').innerText = errorMessage;
+    // $('.toast').toast('show');
+
+    const alert = document.getElementsByClassName('alert');
+    alert.style.display = inherit;
+    console.log('here');
 };

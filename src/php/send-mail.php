@@ -1,54 +1,64 @@
 <?php
 
-$from = "petio_yanakiev@abv.bg"; // this is your Email address
-$to = "petio_yanakiev@abv.bg"; // this is the sender's Email address
-// // $first_name = $_POST['first_name'];
-// // $last_name = $_POST['last_name'];
-$subject = "Form submission";
-$message = "this is a test msg";
+// abv.bg ibdb credentials:
+// ibdb_contanct@abv.bg
+// admin1234
 
-$headers = "From:" . $from;
-// $headers2 = "From:" . $to;
-mail($to,$subject,$message,$headers);
-// // mail($from,$subject2,$message2,$headers2); // sends a copy of the message to the sender
-echo "Mail Sent. Thank you ######<";
-// // You can also use header('Location: thank_you.php'); to redirect to another page.
+$data_fetched = json_decode(file_get_contents('php://input'), true);
 
-// $data = json_decode(file_get_contents('php://input'), true);
+$subject = "IDBd Contact mail from " . $data_fetched["name"];
+$message = $data_fetched["text"];
+$message = $message . "\n \n User email: " . $data_fetched["emailAddress"];
 
-// $subject = "IDBd Contact mail from " . $data["name"];
-// $message = $data["text"];
+$data = array (
+    'personalizations' => 
+    array (
+      0 => 
+      array (
+        'to' => 
+        array (
+          0 => 
+          array (
+            'email' => 'ibdb_contanct@abv.bg',
+          ),
+        ),
+      ),
+    ),
+    'from' => 
+    array (
+      'email' => 'ibdb_contanct@abv.bg',
+    ),
+    'subject' => $subject,
+    'content' => 
+    array (
+      0 => 
+      array (
+        'type' => 'text/plain',
+        'value' => $message,
+      ),
+    ),
+);
 
-// $message = $message . $data["emailAddress"];
-// $from = "petio_yanakiev@abv.bg";
-// $headers = "From:" . $from;
+$post_data = json_encode($data);
 
-// if (mail("ibdb_contanct@abv.bg", $subject, $message, $headers)) {
-//     $response = array(
-//         'status' => true,
-//         'subject' => $subject,
-//         'message' => $message,
-//         'headers' => $headers
-//     );
-//     echo json_encode($response);
-// } else {
-//     $response = array(
-//         'status' => false,
-//         'subject' => $subject,
-//         'message' => $message,
-//         'headers' => $headers
-//     );
-//     echo json_encode($response);
-// }
-
-// $message = wordwrap($message, 70, "\r\n");
-
-// $sender = $data["emailAddress"];
-
-// $headers = array("From: petaryanakiev.py@gmail.com",
-//     "Reply-To: " . $sender,
-//     "X-Mailer: PHP/" . PHP_VERSION
-// );
-// $headers = implode("\r\n", $headers);
-// contact1234 -> yahoo -> ibdb_contact@yahoo.com
-// admin1234 -> abv -> ibdb_contanct@abv.bg
+$crl = curl_init('https://api.sendgrid.com/v3/mail/send');
+curl_setopt($crl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($crl, CURLINFO_HEADER_OUT, true);
+curl_setopt($crl, CURLOPT_POST, true);
+curl_setopt($crl, CURLOPT_POSTFIELDS, $post_data);
+curl_setopt($crl, CURLOPT_HTTPHEADER, array(
+    'Content-Type: application/json',
+    'Authorization: Bearer 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'
+));
+$result = curl_exec($crl);
+$response = array();
+if ($result === false) {
+    $response = array(
+        'status' => false
+    );
+} else {
+    $response = array(
+        'status' => true
+    );
+}
+echo json_encode($response);
