@@ -9,11 +9,11 @@ sendButton.addEventListener('click', (event) => {
     const text = document.getElementById('text').value;
 
     if (emailAddress === '') {
-        showToast('Please fill in your email address!');
+        showAlert(document.getElementById('email-address'));
     } else if (name === '') {
-        showToast('Please fill in your name!');
+        showAlert(document.getElementById('name'));
     } else if (text === '') {
-        showToast('Please fill in the text field in order to send the message you want!');
+        showAlert(document.getElementById('text'));
     } else {
         const formData = {
             emailAddress: emailAddress,
@@ -28,21 +28,27 @@ sendButton.addEventListener('click', (event) => {
         .then(response => response.json())
         .then(response => {
             console.log(response);
-            // showToast('Your mail has been sent!');
+            if (response.status) {
+                document.getElementById('email-success').classList.remove('hidden');
+            } else {
+                document.getElementById('email-fail').classList.remove('hidden');
+            }
         });
-
-        // showToast('You will be notified when your mail is sent!');
     }
 });
 
-function showToast(errorMessage) {
-    // const timestamp = new Date;
-    // document.getElementById('toast-time').innerText = timestamp.getHours() + 
-    //     ':' + timestamp.getMinutes();
-    // document.getElementById('toast-body').innerText = errorMessage;
-    // $('.toast').toast('show');
-
-    const alert = document.getElementsByClassName('alert');
-    alert.style.display = inherit;
-    console.log('here');
+function showAlert(domElement) {
+    domElement.classList.add('is-invalid');
 };
+
+document.getElementById('email-address').addEventListener('focus', (event) => {
+    document.getElementById('email-address').classList.remove('is-invalid');
+});
+
+document.getElementById('name').addEventListener('focus', (event) => {
+    document.getElementById('name').classList.remove('is-invalid');
+});
+
+document.getElementById('text').addEventListener('focus', (event) => {
+    document.getElementById('text').classList.remove('is-invalid');
+});
