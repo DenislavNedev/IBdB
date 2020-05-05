@@ -11,6 +11,10 @@ body {
     /* background-color: #333333; */
 }
 
+#search-field {
+    margin-right: 15px;
+}
+
 #heading {
     margin-top: 5%;
     text-align: center;
