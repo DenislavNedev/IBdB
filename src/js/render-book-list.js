@@ -5,12 +5,19 @@ queryString = queryString.substring(1);
 const criteria = queryString.split('=')[0];
 const author = queryString.split('=')[1];
 
+// Added this in order to show loading spinner
+document.getElementById('loading').classList.remove('hidden');
+document.getElementById('loading-text').classList.remove('hidden');
 
 fetch('https://openlibrary.org/search.json?author=' + author, {
     method: 'GET',
 })
     .then(response => response.json())
     .then(response => {
+        // Added this in order to hide loading spinner
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('loading-text').classList.add('hidden');
+
         var books_template = document.getElementById("book-list-template").innerHTML;
         var books_hb = Handlebars.compile(books_template);
 

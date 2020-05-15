@@ -139,3 +139,7 @@ p {
 .hidden {
     display: none;
 }
+
+#loading-text {
+    margin-top: 3px;
+}
