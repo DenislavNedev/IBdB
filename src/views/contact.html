@@ -31,6 +31,8 @@
                     <a class="navbar-brand" href="genres.html">Genres</a>
                     <a class="navbar-brand" href="contact.html">Contact</a>
                     <a class="navbar-brand" href="faq.html">FAQ</a>
+                    <a class="navbar-brand logged-out" href="login.html">Login/ Register</a>
+                    <a class="navbar-brand logged-in" href="account.html">Account</a>
                 </div>
             </div>
         </nav>
@@ -71,6 +73,28 @@
                 </fieldset>
             </form>
         </div>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyBjR73ftrkmXecagOY1yCbV_TdyIN5HQlc",
+                authDomain: "ibdb-532a7.firebaseapp.com",
+                databaseURL: "https://ibdb-532a7.firebaseio.com",
+                projectId: "ibdb-532a7",
+                storageBucket: "ibdb-532a7.appspot.com",
+                messagingSenderId: "921081096504",
+                appId: "1:921081096504:web:bd2d7789ff84957f5d39cd"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+    
+            const auth = firebase.auth();
+            const firestore = firebase.firestore();
+        </script>
+        <script src="../js/authentication.js"></script>
+        <script src="../js/navigation.js"></script>
     </div>
 </body>
 
