@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../../lib/creative/css/component.css">
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
     <script src="../../lib/bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
-    <script src="../../lib/handlebars-v4.7.6.js"></script>
 </head>
 
 <body>
+
     <div class="container">
+        <!-- navigation, to be included in a separate tag -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark cl-effect-14" id="cl-effect-14">
             <a class="navbar-brand" id="logo-img-link" href="../index.html"><img class="logo-img"
                     src="../img/ibdb_logo.png" alt="Logo"></a>
@@ -33,52 +34,42 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navbarColor02">
-                <div class="navbar-nav mx-auto">
+                <div class="navbar-nav mx-auto" id="links">
                     <a class="navbar-brand" href="../index.html">Search</a>
                     <a class="navbar-brand" href="genres.html">Genres</a>
                     <a class="navbar-brand" href="contact.html">Contact</a>
                     <a class="navbar-brand" href="faq.html">FAQ</a>
                     <a class="navbar-brand logged-out" href="login.html">Login/ Register</a>
-                    <a class="navbar-brand logged-in" href="account.html">Account</a>
+                    <a class="navbar-brand logged-in" href="">Account</a>
                 </div>
             </div>
         </nav>
-        <!-- The element to which we attach the generated html from the handlebars template -->
-        <div id="book-info" class="card mb-3 jumbotron"></div>
-    </div>
 
-    <!-- The handlebars template which will render the book info -->
-    <script id="book-template" type="text/x-handlebars-template">
-    <h3 class="card-header">{{title}}</h3>
-    <div class="card-body">
-        <h5 class="card-title">Written by &nbsp; {{#each authors}} <a href="{{this.url}}" class="card-link">{{this.name}}</a> {{/each}}</h5>
-        <p class="card-text"> <img id="the-outsider-img" src="{{covers.medium}}">{{notes}}</p>
-        {{#if ISBN}}
-        <p class="card-subtitle text-muted">ISBN: {{ISBN}}</p>
-        {{/if}}
-        {{#if amazon}}
-        <p class="card-subtitle text-muted">Amazon: {{amazon}}</p>
-        {{/if}}
-        {{#if goodreads}}
-        <p class="card-subtitle text-muted">Goodreads: {{goodreads}}</p>
-        {{/if}}
-        {{#if open_library}}
-        <p class="card-subtitle text-muted">Open Library: {{open_library}}</p></br> 
-        {{/if}}
-        <p class="card-subtitle">Published {{publish_date}} by {{publisher}}</p>
-        <p class="card-subtitle">Number of pages: {{number_of_pages}}</p>
-    </div>
-    <ul class="list-group list-group-flush">
-        <li class="list-group-item">Tags</li>
-        <div class="card-body">
-            {{#each subjects}}
-            <a href="{{this.url}}" class="card-link">{{this.name}}</a>
-            {{/each}}
+        <!-- main content of the page -->
+        <div class="jumbotron" id="heading">
+            <button id="logOut">logout</button>
         </div>
-        <button id="readme" type="button" class="btn btn-outline-warning">READ ME</button>
-    </ul>
+    </div>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyBjR73ftrkmXecagOY1yCbV_TdyIN5HQlc",
+            authDomain: "ibdb-532a7.firebaseapp.com",
+            databaseURL: "https://ibdb-532a7.firebaseio.com",
+            projectId: "ibdb-532a7",
+            storageBucket: "ibdb-532a7.appspot.com",
+            messagingSenderId: "921081096504",
+            appId: "1:921081096504:web:bd2d7789ff84957f5d39cd"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
 
-    <div class="card-footer text-muted">2 days ago</div>
+        const auth = firebase.auth();
+        const firestore = firebase.firestore();
     </script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
@@ -102,8 +93,7 @@
     </script>
     <script src="../js/authentication.js"></script>
     <script src="../js/navigation.js"></script>
-    <script src="../js/render-book.js"></script>
-
+    <script src="../js/account.js"></script>
 </body>
 
 </html>
