@@ -6,8 +6,15 @@ const criteria = queryString.split('=')[0];
 const author = queryString.split('=')[1];
 
 // Added this in order to show loading spinner
-document.getElementById('loading').classList.remove('hidden');
-document.getElementById('loading-text').classList.remove('hidden');
+const loader = document.getElementById('loading')
+if (loader) {   
+    loader.classList.remove('hidden');
+}
+
+const loadingText = document.getElementById('loading-text');
+if (loadingText) {
+    loadingText.classList.remove('hidden');
+}
 
 fetch('https://openlibrary.org/search.json?author=' + author, {
     method: 'GET',
