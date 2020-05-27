@@ -102,4 +102,36 @@ if (criteria === 'author') {
             });
             console.log(response.docs[0]);
         });
+} else if (criteria === 'genre') {
+    const fetchQuery = 'http://openlibrary.org/subjects/' + value.toLowerCase() + '.json?limit=50';
+    // const fetchQuery = 'http://openlibrary.org/subjects/art.json?details=true';
+    fetch(fetchQuery, {
+        method: 'GET',
+    })
+        .then(response => response.json())
+        .then(response => {
+            // Added this in order to hide loading spinner
+            document.getElementById('loading').classList.add('hidden');
+            document.getElementById('loading-text').classList.add('hidden');
+
+            var books_template = document.getElementById("book-list-template").innerHTML;
+            var books_hb = Handlebars.compile(books_template);
+
+            console.log(response);
+
+            var books_data = response.works;
+            books_data.forEach(book => {
+                var book = {
+                    title: book.title,
+                    author: book.authors[0].name,
+                    // isbn: book.availability.isbn, -> does not allways work well
+                    isbn: book.availability.isbn ? book.availability.isbn : "None",
+                    cover_id: book.cover_id,
+                    last_modified: "not modified"
+                };
+
+                var book_to_pass = books_hb(book);
+                document.getElementById("book-list").innerHTML += book_to_pass;
+        });
+    });
 }
