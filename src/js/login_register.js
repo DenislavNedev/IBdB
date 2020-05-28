@@ -1,9 +1,11 @@
 auth.onAuthStateChanged(user => {
     if (user) {
         localStorage.setItem('logged', 'true');
+        // loggedIn = true;
         setupUI(user)
     } else {
         localStorage.setItem('logged', 'false');
+        // loggedIn = false;
         setupUI()
     }
 });

@@ -62,7 +62,7 @@
     <script id="book-list-template" type="text/x-handlebars-template">
 
     {{#if isbn}}
-    <a href="" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a id="book-item" class="list-group-item list-group-item-action flex-column align-items-start">
         <div class="w-100 justify-content-between">
             <img style="height: auto; width: 90px; display: block; float: left; margin-right:15px;" src="http://covers.openlibrary.org/b/id/{{cover_id}}-L.jpg">
             <div>
@@ -96,9 +96,11 @@
         const auth = firebase.auth();
         const firestore = firebase.firestore();
     </script>
+
     <script src="../js/authentication.js"></script>
     <script src="../js/navigation.js"></script>
     <script src="../js/render-book-list.js"></script>
+    <script src="../js/click-book.js"></script>
 </body>
 
 </html>

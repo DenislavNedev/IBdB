@@ -64,6 +64,8 @@ if (criteria === 'author') {
 
                 var book_to_pass = books_hb(book);
                 document.getElementById("book-list").innerHTML += book_to_pass;
+
+                onBooksRendered();
             });
 
             console.log(response.docs[0]);
@@ -99,6 +101,8 @@ if (criteria === 'author') {
 
                 var book_to_pass = books_hb(book);
                 document.getElementById("book-list").innerHTML += book_to_pass;
+
+                onBooksRendered();
             });
             console.log(response.docs[0]);
         });
@@ -130,8 +134,10 @@ if (criteria === 'author') {
                     last_modified: "not modified"
                 };
 
-                var book_to_pass = books_hb(book);
-                document.getElementById("book-list").innerHTML += book_to_pass;
+            var book_to_pass = books_hb(book);
+            document.getElementById("book-list").innerHTML += book_to_pass;
+
+            onBooksRendered();
         });
     });
 }

@@ -203,3 +203,7 @@ p {
 div.hidden {
     display: none
 }
+
+#book-item {
+    cursor: pointer;
+}
