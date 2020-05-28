@@ -1,7 +1,4 @@
-console.log('from click book');
-
 const onBooksRendered = () => {
-    console.log('books rendered');
     const books = document.querySelectorAll('#book-item');
     books.forEach(book => {
         book.addEventListener('click', event => {
