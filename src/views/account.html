@@ -47,30 +47,81 @@
 
         <!-- main content of the page -->
         <div class="jumbotron" id="heading">
-            <button id="logOut">logout</button>
+            <div class="page-header">
+                <legend class="card-header" id="welcome-message"> </legend>
+            </div>
+            <br>
+            <div style="display: block">
+                <h3><i>Current Plan: Free account</i></h3>
+            </div>
+            <section class="pricing py-5">
+                <div class="container">
+                    <div class="row d-flex justify-content-center">
+                        <!-- Free Tier -->
+                        <div class="col-lg-4">
+                            <div class="card mb-5 mb-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">Free</h5>
+                                    <h6 class="card-price text-center">€0<span class="period">/month</span></h6>
+                                    <hr>
+                                    <ul class="fa-ul">
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search book by ISBN</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search book by title</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search book by genre</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search book by author</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Read online book</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search history</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Lots of adds</li>
+                                    </ul>
+                                    <a href="#"
+                                        class=" btn btn-warning btn btn-block btn-primary text-uppercase">Soon...</a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Plus Tier -->
+                        <div class="col-lg-4">
+                            <div class="card mb-5 mb-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title text-muted text-uppercase text-center">Premium</h5>
+                                    <h6 class="card-price text-center">€3.50<span class="period">/month</span></h6>
+                                    <hr>
+                                    <ul class="fa-ul">
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search book by ISBN</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search book by title</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search book by genre</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search book by author</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Read online book</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>Search history</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>NO adds</li>
+                                        <li><span class="fa-li"><i class="fas fa-check"></i></span>5 recommended books based on your search every month</li>
+
+                                    </ul>
+                                    <a href="#"
+                                        class=" btn btn-warning btn btn-block btn-primary text-uppercase">Soon...</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <br>
+            <div>
+                <h3>Your last searches:</h3>
+                <div class="d-flex">
+                    <div>
+                        <h4>
+                            <ul id="history-list">
+
+                            </ul>
+                        </h4>
+                    </div>
+                </div>
+                <h4 id="empty-list">History is empty</h4>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-warning" id="logOut">Log out</button>
         </div>
     </div>
-    </div>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
-    <script>
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyBjR73ftrkmXecagOY1yCbV_TdyIN5HQlc",
-            authDomain: "ibdb-532a7.firebaseapp.com",
-            databaseURL: "https://ibdb-532a7.firebaseio.com",
-            projectId: "ibdb-532a7",
-            storageBucket: "ibdb-532a7.appspot.com",
-            messagingSenderId: "921081096504",
-            appId: "1:921081096504:web:bd2d7789ff84957f5d39cd"
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-
-        const auth = firebase.auth();
-        const firestore = firebase.firestore();
-    </script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.14.2/firebase-firestore.js"></script>
