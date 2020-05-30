@@ -25,6 +25,12 @@ if (criteria === 'author') {
     })
         .then(response => response.json())
         .then(response => {
+            if (response.num_found === 0) {
+                document.querySelector('#no-results strong').classList.remove('hidden');
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('loading-text').classList.add('hidden');
+                return;
+            }
             // Added this in order to hide loading spinner
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('loading-text').classList.add('hidden');
@@ -79,6 +85,12 @@ if (criteria === 'author') {
     })
         .then(response => response.json())
         .then(response => {
+            if (response.num_found === 0) {
+                document.querySelector('#no-results strong').classList.remove('hidden');
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('loading-text').classList.add('hidden');
+                return;
+            }
             // Added this in order to hide loading spinner
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('loading-text').classList.add('hidden');
@@ -114,6 +126,12 @@ if (criteria === 'author') {
     })
         .then(response => response.json())
         .then(response => {
+            if (response.num_found === 0) {
+                document.querySelector('#no-results strong').classList.remove('hidden');
+                document.getElementById('loading').classList.add('hidden');
+                document.getElementById('loading-text').classList.add('hidden');
+                return;
+            }
             // Added this in order to hide loading spinner
             document.getElementById('loading').classList.add('hidden');
             document.getElementById('loading-text').classList.add('hidden');

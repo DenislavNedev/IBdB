@@ -9,6 +9,12 @@ fetch('https://openlibrary.org/api/books?bibkeys=ISBN:' + isbn + '&format=json&j
 })
     .then(response => response.json())
     .then(response => {
+
+        if (Object.keys(response).length === 0 && response.constructor === Object) {
+            document.querySelector('#no-results strong').classList.remove('hidden');
+            return;
+        }
+
         var book_template = document.getElementById("book-template").innerHTML;
         var book_hb = Handlebars.compile(book_template);
 
