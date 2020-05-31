@@ -1,4 +1,3 @@
 <?php
-    include_once(src/index.html);
-    echo Hello World!;
+    header('Location: src/index.html');
 ?>
