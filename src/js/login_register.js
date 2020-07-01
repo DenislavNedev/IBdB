@@ -21,12 +21,7 @@ registerForm.addEventListener('submit', (event) => {
         showErrorMessage('Empty fields! Please fill all fields.')
     } else {
         auth.createUserWithEmailAndPassword(email, password).then(credentials => {
-                console.log(credentials)
-            firestore.collection("users").add({
-                email: credentials.user.email
-            }).then(() => {
                 location.replace("account.html")
-            })
         }).catch(err => {
             registerForm.reset()
             showErrorMessage(err.message)

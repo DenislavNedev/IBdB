@@ -1,2 +1,2 @@
-# IBdB
+# IBDb
 Internet Book Database
